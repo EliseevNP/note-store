@@ -1,0 +1,5 @@
+ {
+  "name": "Note store API",
+  "version": "0.0.1",
+  "description": "Backend for note store service"
+}

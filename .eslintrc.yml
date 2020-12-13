@@ -1,0 +1,3 @@
+extends: ['airbnb-base', 'plugin:prettier/recommended']
+plugins: ['prettier']
+globals: { before: true, beforeEach: true, after: true, afterEach: true, it: true, describe: true, expect: true }

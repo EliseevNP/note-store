@@ -1,0 +1,6 @@
+node_modules
+data/development/*
+data/testing/*
+!data/development/.gitkeep
+!data/testing/.gitkeep
+docs

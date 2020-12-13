@@ -1,0 +1,21 @@
+version: '3.7'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    environment:
+      - MYSQL_HOST=
+      - MYSQL_PORT=
+      - MYSQL_USER=
+      - MYSQL_PASSWORD=
+      - MYSQL_DATABASE=
+      - JWT_SECRET=
+      - REDIS_HOST=
+      - REDIS_PORT=
+      - SALT_ROUNDS=
+      - ACCESS_TOKEN_EXPIRES_IN=
+      - REFRESH_TOKEN_EXPIRES_IN=

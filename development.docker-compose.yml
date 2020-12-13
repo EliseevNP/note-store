@@ -1,0 +1,42 @@
+version: '3.7'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: development.Dockerfile
+    ports:
+      - 3000:3000
+    environment:
+      - APP_PORT=3000
+      - MYSQL_HOST=mysql
+      - MYSQL_PORT=3306
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=root_password
+      - MYSQL_DATABASE=notes
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - JWT_SECRET=jwt_secret
+      - SALT_ROUNDS=10
+      - ACCESS_TOKEN_EXPIRES_IN=1h
+      - REFRESH_TOKEN_EXPIRES_IN=1d
+    volumes:
+      - ./src:/app/src
+    depends_on:
+      - mysql
+      - redis
+
+  mysql:
+    image: mysql:5.7.16
+    environment:
+      - MYSQL_ROOT_PASSWORD=root_password
+      - MYSQL_DATABASE=notes
+    volumes:
+      - ./data/development:/var/lib/mysql
+    ports:
+      - '3306:3306'
+
+  redis:
+    image: 'redis:4'
+    ports:
+      - '6379:6379'
